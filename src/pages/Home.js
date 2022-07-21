@@ -45,16 +45,17 @@ class Home extends Component {
       currentDate: todo.date,
       dueDate: todo.duedate
     };
-
+    
     Axios({
       method: "POST",
       url: "http://localhost:8080/add/item",
       data: {jsonObject},
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      withCredentials: true
     }).then(res => {
-        console.log(res.data.message);
+      console.log(res.data.message);
     });
 
     // Create a array that contains the current array and the new todo item
